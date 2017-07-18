@@ -1,0 +1,161 @@
+<form id="detailForm" config="submitConf">
+	<input type="submit" id="formSubmitBtn" style="display:none;"/>
+	
+	<fieldset>
+		<legend>文書属性</legend>
+		<table class="contents title">
+			<tbody>
+				<tr>
+					<th class="required width15">グループID</th>
+					<td class="width35">
+						<input type="text" id="groupId" name="groupId" class="jqxinput" prop="{width:'95%'}" rule="required" action="keyup, blur" value="<?php echo $this->result['group_id']?>"/>
+					</td>
+					<th class="required width15">グループ運用拠点</th>
+					<td class="width35">
+						<input type="text" id="appBaseCd" name="appBaseCd" class="jqxinput" prop="{width:'95%'}" rule="length=5,10" action="keyup, blur" value="<?php echo $this->result['app_base_cd']?>"/>
+					</td>
+				</tr>
+				<tr>
+					<th class="width15">グループ名称(ローカル)</th>
+					<td class="width35">
+						<input type="text" id="groupNmLocal" name="groupNmLocal" class="jqxinput" prop="{width:'95%'}" value="<?php echo $this->result['group_nm_local']?>"/>
+					</td>
+					<th class="width15">グループ名称(英語)</th>
+					<td class="width35">
+						<input type="text" id="groupNmEnus" name="groupNmEnus" class="jqxinput" prop="{width:'95%'}" value="<?php echo $this->result['group_nm_enus']?>"/>
+					</td>
+				</tr>
+				<tr>
+					<th class="width15">グループ会社</th>
+					<td class="width35">
+						<input type="text" id="groupCompId1" name="groupCompId1" class="jqxinput" prop="{width:'95%'}"/>
+					</td>
+					<th class="width15">グループ所属</th>
+					<td class="width35">
+						<input type="text" id="groupOrgId" name="groupOrgId" class="jqxinput" prop="{width:'95%'}"/>
+					</td>
+				</tr>
+				<tr>
+					<th class="width15">システムID</th>
+					<td class="width35">
+						<input type="text" id="systemId" name="systemId" class="jqxinput" prop="{width:'95%'}" value="<?php echo $this->result['system_id']?>"/>
+					</td>
+					<th class="width15">ロールID</th>
+					<td class="width35">
+						<input type="text" id="roleId" name="roleId" class="jqxinput" prop="{width:'95%'}" value="<?php echo $this->result['role_id']?>"/>
+					</td>
+				</tr>
+				<tr>
+					<th class="width15">有効期限</th>
+					<td class="width35">
+						<div id='expireDate' class="jqxDateTimeInput" name="expireDate" rule="daterequired" action="valueChanged" value="<?php echo $this->result['expire_date']?>">
+	            		</div>
+					</td>
+					<th class="width15">メンバータイプ</th>
+					<td class="width35">
+						<div id="memberType1" name="memberType" class="jqxcheckbox" group="memberType" style="float:left;">PERSON</div>
+						<div id="memberType2" name="memberType" class="jqxcheckbox" group="memberType" style="float:left;">GROUP</div>
+					</td>
+				</tr>
+				<tr>
+					<th class="width15">グループ説明</th>
+					<td colspan = '3'>
+						<textarea id="editor" name="editor" class="jqxeditor"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<th class="width15">添付資料</th>
+					<td colspan = '3'>
+						
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</fieldset>
+	
+	<div id='jqxtabs' class="jqxtabs">
+		<ul>
+			<li style="margin-left: 30px;">Node.js</li>
+			<li>JavaServer Pages</li>
+		</ul>
+		<div>
+			<div style="margin:5px;">
+				<table class="contents title">
+					<tbody>
+						<tr>
+							<th class="width15">グループタイプ</th>
+							<td class="width35">
+								<input type="text" id="groupType" class="jqxinput" prop="{width:'95%'}"/>
+							</td>
+							<th class="width15">組織タイプ</th>
+							<td class="width35">
+								<input type="text" id="orgType" class="jqxinput" prop="{width:'95%'}"/>
+							</td>
+						</tr>
+						<tr>
+							<th class="width15">グループメール</th>
+							<td class="width35">
+								<input type="text" id="mailAddress" class="jqxinput" prop="{width:'95%'}" rule="required|email" action="blur"/>
+							</td>
+							<th class="width15">テスト</th>
+							<td class="width35">
+								<input type="text" id="controlId" class="jqxinput" prop="{width:'95%'}"/>
+							</td>
+						</tr>
+						<tr>
+							<th class="width15">Combobox</th>
+							<td class="width35">
+								<div id='groupCompId' class="jqxcombobox" name="groupCompId" config="comboboxConfig" rule="comboboxrequired" action="checkChange, keyup, blur" value="<?php echo $this->result['group_comp_id']?>"></div>
+							</td>
+							<th class="width15">テスト</th>
+							<td class="width35">
+								<input type="text" id="controlId" class="jqxinput" prop="{width:'95%'}"/>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div>
+			<div style="margin:5px;">
+				<table class="contents title">
+					<tbody>
+						<tr>
+							<th class="width15">グループタイプ</th>
+							<td class="width35">
+								<input type="text" id="groupType" class="jqxinput" prop="{width:'95%'}"/>
+							</td>
+							<th class="width15">組織タイプ</th>
+							<td class="width35">
+								<input type="text" id="orgType" class="jqxinput" prop="{width:'95%'}"/>
+							</td>
+						</tr>
+						<tr>
+							<th class="width15">グループメール</th>
+							<td class="width35">
+								<input type="text" id="mailAddress1" class="jqxinput" prop="{width:'95%'}"/>
+							</td>
+							<th class="width15">テスト</th>
+							<td class="width35">
+								<input type="text" id="controlId1" class="jqxinput" prop="{width:'95%'}"/>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</form>
+
+<fieldset>
+	<legend>添付資料</legend>
+	<table class="contents title">
+		<tbody>
+			<tr>
+				<td>
+					<div id='jqxfileupload' class="jqxfileupload" config="fileUploadConf"></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</fieldset>

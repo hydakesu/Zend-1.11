@@ -1,0 +1,13 @@
+<?php echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<?php echo $this->render('list/listHeader.phtml');?>
+</head>
+<body style="height:100%;">
+	<?php echo $this->render('menu/listMenu.phtml');?>
+	
+	<?php echo $this->layout()->content ?>
+	
+	<?php echo $this->render('list/listFooter.phtml');?>
+</body>
+</html>

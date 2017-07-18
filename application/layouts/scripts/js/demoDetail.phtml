@@ -1,0 +1,56 @@
+$(document).ready(function () {
+	new appTojqwidgetsImpl('detail', ['jqxmenu', 'jqxinput','jqxdatetimeinput', 'jqxcheckbox', 'jqxeditor', 'jqxfileupload', 'jqxtabs', 'jqxcombobox']);
+	
+	app.baseUrl = "http://" + window.location.hostname + (($.trim(window.location.port) != "")?(":" + window.location.port):"") + "<?php echo $this->baseUrl() ?>";
+})
+
+function comboboxConfig(){
+	var jqxInpConfig = {};
+	var source = [
+	    {
+			"CustomerID": "ALFKI",
+	        "ContactName": "Maria Anders"
+	    },
+	    {
+			"CustomerID": "ANATR",
+	        "ContactName": "Ana Trujillo"
+	    },
+	    {
+			"CustomerID": "ANTON",
+	        "ContactName": "Antonio Moreno"
+	    },
+		{
+			"CustomerID": "ALFKI",
+	        "ContactName": "Maria Anders"
+	    },
+	    {
+			"CustomerID": "ANATR",
+	        "ContactName": "Ana Trujillo"
+	    },
+	    {
+			"CustomerID": "ANTON",
+	        "ContactName": "Antonio Moreno"
+	    }
+	];
+	
+	jqxInpConfig.source = source;
+	jqxInpConfig.displayMember = "ContactName";
+	jqxInpConfig.valueMember = "CustomerID";
+	jqxInpConfig.checkboxes = true;
+	
+	return jqxInpConfig;
+}
+
+function fileUploadConf(){
+	var jqxInpConfig = {};
+	jqxInpConfig.uploadUrl = app.baseUrl + "/file/upload?id=GROUP_00001&div=1000";
+	
+	return jqxInpConfig;
+}
+
+function submitConf(){
+	var config = {};
+	config.url = app.baseUrl + "/demoDetail/save";
+	
+	return config;
+}

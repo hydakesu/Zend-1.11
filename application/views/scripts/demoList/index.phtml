@@ -1,0 +1,95 @@
+<div id="jqxsplitter" class="jqxsplitter" style="margin-top:5px;">
+	<div class="splitter-panel">
+		<div id='leftPanel'>
+			<div id="P1L1">
+				<fieldset>
+					<legend><?php echo $this->translate('search');?></legend>
+					<div style="float:left;">
+						<input type="text" id="searchContent" class="jqxinput" prop="{'placeHolder':'Enter Key Value.', width:200}"/>
+					</div>
+					<div style="float: right;">
+						<input type="button" value="<?php echo $this->translate('search');?>" id='searchBtn' class="jqxButton" prop="{'width':90,'imgSrc':'search.png'}"/>
+					</div>
+				</fieldset>
+			</div>
+			
+			<div id="P1L2">
+				<fieldset>
+					<legend id="P1S2-Title" class="yacePointer icon-expand"><?php echo $this->translate('docInfo');?></legend>
+					<table id="P1S2-Main" cellspacing="0" cellpadding="0" style="width:100%;">
+						<tbody>
+							<tr>
+								<td class="yaceWidth20"><?php echo $this->translate('docName');?></td>
+								<td colspan="2">
+									<input type="text" id="ymc_localName" class="jqxinput"/>
+								</td>
+							</tr>
+							<tr>
+								<td class="yaceWidth20"><?php echo $this->translate('creator');?></td>
+								<td >
+									<input type="text" id="ymc_creator" class="jqxinput"/>
+								</td>
+								<td >
+									<input type="button" value="<?php echo $this->translate('select');?>" id='personSearch' class="jqxButton" prop="{'width':65}"/>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</fieldset>
+			</div>
+			
+			<div id="P1L3">
+				<fieldset>
+					<legend id="P1S2-Title" class="yacePointer icon-expand"><?php echo $this->translate('tree');?></legend>
+					<div id='jqxTree'>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+	<div class="splitter-panel">
+		<div id='rightPanel'>
+			<div id="rightToolPanel" style="height:40px;">
+				<div style="float: left; margin-left: 5px; margin-top: 7px;">
+					<input type="button" value="<?php echo $this->translate('create');?>" id='createButton' class="jqxButton" prop="{'width':90,'imgSrc':'add.png'}" func="createButtonFunc()"/>
+				</div>
+				<div style="float: left; margin-left: 5px; margin-top: 7px;">
+					<input type="button" value="<?php echo $this->translate('del');?>" id='delButton' class="jqxButton" prop="{'width':90,'imgSrc':'add.png'}"/>
+				</div>
+				<div style='float: left; margin-left: 5px; margin-top: 7px;' class="dropDownBtn" child="jqxTreeForBtn">
+		            <div style="border: none;" id='jqxTreeForBtn'>
+		                <ul>
+		                    <li item-selected='true'>Home</li>
+		                    <li item-expanded='true'>Solutions
+		                        <ul>
+		                            <li>Education</li>
+		                            <li>Financial services</li>
+		                            <li>Government</li>
+		                            <li>Manufacturing</li>
+		                            <li>Solutions
+		                                <ul>
+		                                    <li>eLearning</li>
+		                                    <li>Mobile</li>
+		                                    <li>RIA</li>
+		                                    <li>Training</li>
+		                                </ul>
+		                            </li>
+		                        </ul>
+		                    </li>
+		                    <li>Products
+		                        <ul>
+		                            <li>PC products</li>
+		                            <li>Mobile products</li>
+		                            <li>All products</li>
+		                        </ul>
+		                    </li>
+		                </ul>
+			        </div>
+			    </div>
+			</div>
+				
+			<div id='dataTable' config="listConfig">
+    		</div>
+		</div>
+	</div>
+</div>

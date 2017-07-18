@@ -1,0 +1,64 @@
+@charset "utf-8";
+
+body { font-size:62.5%; }
+h1 { font-size: 2.4em; } /* =24px */
+p  { font-size: 1.4em; } /* =14px */
+
+/* ----------------------- Basic Style */
+/* 2013-06-17 */
+/* ------------ Font Style */
+body,input,textarea {
+
+	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN",Meiryo,メイリオ,sans-serif;　　
+}
+html>/**/body {
+	font-size: 12px;
+}
+* + html body {
+	font-family: "メイリオ","Meiryo";
+}
+/* CONTENT LIMMITER */
+body img {
+	border: 0px;
+}
+
+body	{
+	min-width:1024px;
+	min-height:768px;
+	margin:5px;
+	background-color:#FFF;
+}
+
+/******************************************************************************/
+/* Common tag                                                                 */
+/******************************************************************************/
+
+form	{
+	margin:0px;
+}
+fieldset	{
+	border:solid 1px #999;
+	margin:0px;
+	margin:3px;
+	padding:3px;
+}
+
+.fileType{
+	background-repeat: no-repeat;
+    height: 30px;
+    width: 30px;
+}
+
+.doc {background-image: url(../../common/img/doc.png);}
+.bmp {background-image: url(../../common/img/bmp.png);}
+.docs {background-image: url(../../common/img/docs.png);}
+.help {background-image: url(../../common/img/help.png);}
+.jpeg {background-image: url(../../common/img/jpeg.png);}
+.jpg {background-image: url(../../common/img/jpg.png);}
+.pdf {background-image: url(../../common/img/pdf.png);}
+.ppt {background-image: url(../../common/img/ppt.png);}
+.pptx {background-image: url(../../common/img/pptx.png);}
+.psd {background-image: url(../../common/img/psd.png);}
+.txt {background-image: url(../../common/img/txt.png);}
+.xls {background-image: url(../../common/img/xls.png);}
+.xlsx {background-image: url(../../common/img/xlsx.png);}

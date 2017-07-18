@@ -1,0 +1,75 @@
+$(document).ready(function () {
+	new appTojqwidgetsImpl('list', ['jqxmenu', 'jqxsplitter', 'jqxinput', 'jqxbuttons', 'jqxtree', 'jqxgrid', 'jqxdropdownbutton']);
+})
+
+function createButtonFunc(){
+	app.openPostWindow("demoDetail", "demoDetail", {model:'new'});
+}
+
+function listConfig(){
+	var url = "http://" + window.location.hostname + (($.trim(window.location.port) != "")?(":" + window.location.port):"")  + $("#path_into").val() + "/getorgs";
+	
+	/** dataFields:
+	 * name - A string containing the data field's name.
+	 * type - A string containing the data field's type. Possible values: 'string', 'date', 'number', 'int', 'float', 'bool'.
+	 * map(optional) - A mapping to the data field.
+	 * format(optional) - Sets the data formatting. By setting the format, the jqxDataAdapter plug-in will try to format the data before loading it. Example: { name: 'SubmitDate', type: 'date', format: "yyyy-MM-ddTHH:mm:ss-HH:mm" }
+	 * values(optional) - determines a foreign collection of values for a datafield.
+	 * 
+	 * **/
+	var source = {
+        dataType: "json",
+        type:"POST",
+        dataFields: [
+            { name: 'group_id',          type: 'string' },
+            { name: 'group_nm_local',    type: 'string' },
+            { name: 'group_nm_enus',     type: 'string' },
+            { name: 'expire_date',       type: 'string' },
+            { name: 'register_datetime', type: 'string' },
+            { name: 'register_user_id',  type: 'string' },
+            { name: 'update_datetime',   type: 'string' },
+            { name: 'update_user_id',    type: 'string' }
+        ],
+        pagesize:20,
+        root: 'rows',
+        id:'group_id',
+        url: url
+    };
+	
+	var dataAdapter = new $.jqx.dataAdapter(source, {
+		async:false,
+		formatData: function (data) {
+            data.offset = data.pagenum * data.pagesize;
+            data.limit  = data.pagesize;
+            data.key    = $("#searchContent").val();
+            return data;
+        },
+        downloadComplete: function (data, status, xhr) {
+            if (!source.totalRecords) {
+                source.totalRecords = parseInt(data["count"]);
+            }
+        },
+        loadComplete: function (data) { },
+        loadError: function (xhr, status, error) {
+        	app.showDialog("Error", '1', error.toString());
+        }
+    });
+	
+	var jqxDataConfig = {};
+	var widthResult = app.setGridWidth(['0.1','0.22','0.22','0.08','0.09','0.1','0.09','0.1']);
+	jqxDataConfig.source = dataAdapter;
+	jqxDataConfig.columns = [
+        { text: "<?php echo $this->translate('group_id');?>", 			dataField: "group_id", 			width: widthResult[0] },
+        { text: "<?php echo $this->translate('group_nm_local');?>", 	dataField: "group_nm_local",	width: widthResult[1] },
+        { text: "<?php echo $this->translate('group_nm_enus');?>", 		dataField: "group_nm_enus", 	width: widthResult[2] },
+        { text: "<?php echo $this->translate('expire_date');?>", 		dataField: "expire_date", 		width: widthResult[3]  , align: "center", cellsAlign: "center"},
+        { text: "<?php echo $this->translate('register_datetime');?>",	dataField: "register_datetime", width: widthResult[4]  , align: "center", cellsAlign: "center"},
+        { text: "<?php echo $this->translate('register_user_id');?>", 	dataField: "register_user_id", 	width: widthResult[5]  , align: "center", cellsAlign: "center"},
+        { text: "<?php echo $this->translate('update_datetime');?>", 	dataField: "update_datetime", 	width: widthResult[6]  , align: "center", cellsAlign: "center"},
+        { text: "<?php echo $this->translate('update_user_id');?>", 	dataField: "update_user_id",    align: "center", cellsAlign: "center"}
+    ];
+	jqxDataConfig.altRows  = true;
+	jqxDataConfig.sortable = true;
+	
+	return jqxDataConfig;
+}

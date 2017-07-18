@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+legend {
+    font-weight: bold;
+    font-size: 12pt;
+    color: #000;
+}
+
+table.contents {
+    width:100%;
+    border-collapse: collapse;
+}
+
+table.contents > tbody > tr > th.required, table.contents > thead > tr > th.required {
+    color: #FF7009;
+}
+
+table.contents > tbody > tr > th, table.contents > thead > tr > th {
+    background-color: #e5f2fc;
+    border: 1px solid #86a7ba;
+    height: 30px;
+    padding-top: 2px;
+    font-size: 13px;
+    color: #2e6e9e;
+    text-align: center;
+}
+
+table.title th {
+    width: 135px;
+}
+
+table.contents > tbody > tr > td {
+    border: 1px solid #86a7ba;
+    height: 30px;
+    padding-left: 5px;
+}
+
+.width15{
+	width:15%;
+}
+
+.width35{
+	width:35%;
+}
+
+.width10{
+	width:10%;
+}
+
+.width23{
+	width:23%;
+}
